@@ -70,7 +70,7 @@ Gpu_performance gpuperformance;
 
 RunCmd *docker_app = new RunCmd(QStringLiteral("/bin/bash /usr/bin/pyqt5.sh"));
 RunCmd *flutter_app = new RunCmd(QStringLiteral("/bin/bash /usr/bin/flutter_app.sh"));
-RunCmd *demo_3d = new RunCmd(QStringLiteral("/bin/bash /usr/bin/OpenGLESSkinning.sh"));
+RunCmd *demo_3d = new RunCmd(QStringLiteral("/bin/bash /usr/bin/OpenGL.sh"));
 
 void platform_setup(QQmlApplicationEngine *engine) {
     std::cout << "Running Platform Setup of AM62x!" << endl;
