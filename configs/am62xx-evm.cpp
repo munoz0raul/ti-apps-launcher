@@ -70,7 +70,7 @@ Gpu_performance gpuperformance;
 
 RunCmd *docker_app = new RunCmd(QStringLiteral("/bin/bash /usr/bin/pyqt5.sh"));
 RunCmd *firefox_browser = new RunCmd(QStringLiteral("docker run -v /run/user/1000/:/tmp/ -i --env http_proxy --env https_proxy --env no_proxy --env XDG_RUNTIME_DIR=/tmp/ --env WAYLAND_DISPLAY=wayland-1 -u user ghcr.io/texasinstruments/seva-browser:v1.0.0 https://www.ti.com/microcontrollers-mcus-processors/arm-based-processors/overview.html"));
-RunCmd *demo_3d = new RunCmd(QStringLiteral("WAYLAND_USER=weston XDG_RUNTIME_DIR=/run/user/63 WAYLAND_DISPLAY=wayland-1 /usr/bin/SGX/demos/Wayland/OpenGLESSkinning"));
+RunCmd *demo_3d = new RunCmd(QStringLiteral("/bin/bash /usr/bin/OpenGLESSkinning.sh"));
 
 void platform_setup(QQmlApplicationEngine *engine) {
     std::cout << "Running Platform Setup of AM62x!" << endl;
