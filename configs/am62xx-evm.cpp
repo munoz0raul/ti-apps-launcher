@@ -46,9 +46,9 @@ app_info include_apps[] = {
         .icon_source = "qrc:/images/docker.png"
     },
     {
-        .qml_source = "firefox_browser.qml",
-        .name = "Firefox",
-        .icon_source = "qrc:/images/firefox.png"
+        .qml_source = "flutter_app.qml",
+        .name = "flutter",
+        .icon_source = "qrc:/images/flutter.png"
     },
     {
         .qml_source = "3d_demo.qml",
@@ -69,7 +69,7 @@ Benchmarks benchmarks;
 Gpu_performance gpuperformance;
 
 RunCmd *docker_app = new RunCmd(QStringLiteral("/bin/bash /usr/bin/pyqt5.sh"));
-RunCmd *firefox_browser = new RunCmd(QStringLiteral("docker run -v /run/user/1000/:/tmp/ -i --env http_proxy --env https_proxy --env no_proxy --env XDG_RUNTIME_DIR=/tmp/ --env WAYLAND_DISPLAY=wayland-1 -u user ghcr.io/texasinstruments/seva-browser:v1.0.0 https://www.ti.com/microcontrollers-mcus-processors/arm-based-processors/overview.html"));
+RunCmd *flutter_app = new RunCmd(QStringLiteral("/bin/bash /usr/bin/flutter_app.sh"));
 RunCmd *demo_3d = new RunCmd(QStringLiteral("/bin/bash /usr/bin/OpenGLESSkinning.sh"));
 
 void platform_setup(QQmlApplicationEngine *engine) {
@@ -77,7 +77,7 @@ void platform_setup(QQmlApplicationEngine *engine) {
     engine->rootContext()->setContextProperty("live_camera", &live_camera);
     engine->rootContext()->setContextProperty("arm_analytics", &arm_analytics);
     engine->rootContext()->setContextProperty("docker_app", docker_app);
-    engine->rootContext()->setContextProperty("firefox_browser", firefox_browser);
+    engine->rootContext()->setContextProperty("flutter_app", flutter_app);
     engine->rootContext()->setContextProperty("demo_3d", demo_3d);
     engine->rootContext()->setContextProperty("settings", &settings);
     engine->rootContext()->setContextProperty("benchmarks", &benchmarks);
