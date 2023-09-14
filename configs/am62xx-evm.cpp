@@ -41,8 +41,8 @@ app_info include_apps[] = {
         .icon_source = "qrc:/images/gpu_performance.png"
     },
     {
-        .qml_source = "docker.qml",
-        .name = "Docker App",
+        .qml_source = "docker_app.qml",
+        .name = "Docker",
         .icon_source = "qrc:/images/docker.png"
     },
     {
@@ -68,7 +68,7 @@ ArmAnalytics arm_analytics;
 Benchmarks benchmarks;
 Gpu_performance gpuperformance;
 
-RunCmd *docker = new RunCmd(QStringLiteral("docker run -it --rm --device-cgroup-rule='c 10:* rmw' --device-cgroup-rule='c 226:* rmw' -v /run/user/63:/run/user/63 -v /dev/dri:/dev/dri -v /dev/pvr_sync:/dev/pvr_sync --env XDG_RUNTIME_DIR=/run/user/63 --env XDG_RUNTIME_DIR=/run/user/63 --env WAYLAND_DISPLAY=wayland-1 --env QT_QPA_PLATFORM=wayland munoz0raul/pyqt5:latest"));
+RunCmd *docker_app = new RunCmd(QStringLiteral("docker run -it --rm --device-cgroup-rule='c 10:* rmw' --device-cgroup-rule='c 226:* rmw' -v /run/user/63:/run/user/63 -v /dev/dri:/dev/dri -v /dev/pvr_sync:/dev/pvr_sync --env XDG_RUNTIME_DIR=/run/user/63 --env XDG_RUNTIME_DIR=/run/user/63 --env WAYLAND_DISPLAY=wayland-1 --env QT_QPA_PLATFORM=wayland munoz0raul/pyqt5:latest"));
 RunCmd *firefox_browser = new RunCmd(QStringLiteral("docker run -v /run/user/1000/:/tmp/ -i --env http_proxy --env https_proxy --env no_proxy --env XDG_RUNTIME_DIR=/tmp/ --env WAYLAND_DISPLAY=wayland-1 -u user ghcr.io/texasinstruments/seva-browser:v1.0.0 https://www.ti.com/microcontrollers-mcus-processors/arm-based-processors/overview.html"));
 RunCmd *demo_3d = new RunCmd(QStringLiteral("/usr/bin/SGX/demos/Wayland/OpenGLESSkinning"));
 
@@ -76,7 +76,7 @@ void platform_setup(QQmlApplicationEngine *engine) {
     std::cout << "Running Platform Setup of AM62x!" << endl;
     engine->rootContext()->setContextProperty("live_camera", &live_camera);
     engine->rootContext()->setContextProperty("arm_analytics", &arm_analytics);
-    engine->rootContext()->setContextProperty("docker", docker);
+    engine->rootContext()->setContextProperty("docker_app", docker_app);
     engine->rootContext()->setContextProperty("firefox_browser", firefox_browser);
     engine->rootContext()->setContextProperty("demo_3d", demo_3d);
     engine->rootContext()->setContextProperty("settings", &settings);

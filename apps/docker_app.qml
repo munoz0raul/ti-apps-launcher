@@ -25,7 +25,7 @@ Rectangle {
     }
     Text {
         id: docker_status_msg
-        text: docker.status_msg
+        text: docker_app.status_msg
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: heading.bottom
         anchors.topMargin: parent.height * 0.01
@@ -35,11 +35,11 @@ Rectangle {
     }
     Button {
         id: docker_button
-        text: docker.button
+        text: docker_app.button
         anchors.top: docker_status_msg.bottom
         anchors.topMargin: parent.height * 0.02
         anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: docker.launch_or_stop()
+        onClicked: docker_app.launch_or_stop()
         font.pixelSize: docker.width * 0.015
         font.family: "Helvetica"
     }
